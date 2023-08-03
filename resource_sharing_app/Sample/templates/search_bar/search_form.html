@@ -1,0 +1,33 @@
+<!-- search_form.html -->
+<style>
+    .search-form {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .search-input {
+        padding: 10px;
+        font-size: 16px;
+        border: 2px solid #007bff;
+        border-radius: 5px 5px 5px 5px;
+        outline: none;
+    }
+
+    .search-button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: transparent;
+        color: black;
+        border: none;
+        border-radius: 0 5px 5px 0;
+        cursor: pointer;
+        margin-left: 10px;
+    }
+</style>
+
+<form method="GET" action="{% url 'search_view' %}" class="search-form">
+    <input type="text" name="q" placeholder="search resources" class="search-input">
+    <button type="submit" class="search-button">Search</button>
+</form>
+

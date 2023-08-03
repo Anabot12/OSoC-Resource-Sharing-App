@@ -1,0 +1,68 @@
+<!-- search_results.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Results</title>
+    <style>
+        body {
+            
+            font-family: Arial, sans-serif;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin: 0;
+        }
+        .resource-box{
+            border: 2px solid ;
+            color: black;
+            padding: 20px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            margin-right: 30px;
+
+        }
+
+    </style>
+</head>
+<body>
+    <h2>Search Results for "{{ query }}"</h2>
+
+    <h3>Resources:</h3>
+    <ul>
+        {% for resource in results %}
+        <li>
+            <div class ="resource-box">
+            <h3>{{ resource.title }}</h3>
+            <p>{{ resource.description }}</p>
+            <ul>
+                {% for tag in resource.tags.all %}
+                <li>{{ tag.name }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        </li>
+        {% empty %}
+        <li>No results found.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
